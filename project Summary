@@ -1,0 +1,62 @@
+# Terraform Kubernetes RBAC Configuration for Jenkins
+
+## Project Overview
+
+This Terraform project provides a comprehensive Role-Based Access Control (RBAC) solution for Jenkins CI/CD operations in Kubernetes environments. It creates a secure, production-ready permission structure that follows the principle of least privilege while enabling Jenkins to perform essential deployment and management tasks.
+
+## What It Does
+
+The project automates the creation of Kubernetes RBAC resources that allow Jenkins to:
+
+- **Deploy Applications** - Create and manage deployments, services, and pods in the `webapps` namespace
+- **Manage Storage** - Handle persistent volumes, persistent volume claims, and storage classes for dynamic provisioning
+- **Configure Networking** - Set up ingresses and manage network-related resources
+- **Handle SSL Certificates** - Work with cert-manager ClusterIssuers for automated certificate management
+- **Perform Autoscaling** - Create and manage Horizontal Pod Autoscalers
+
+## Key Features
+
+### 🔐 **Security-First Design**
+- Implements principle of least privilege
+- Separates namespace-level and cluster-level permissions
+- Provides granular access control for different resource types
+
+### 🏗️ **Production-Ready Architecture**
+- Modular Terraform design for reusability
+- Comprehensive error handling and validation
+- Extensible configuration for custom requirements
+
+### 📋 **Complete RBAC Setup**
+- **ServiceAccount** - Identity for Jenkins pods
+- **Role** - Namespace-scoped permissions for application resources
+- **RoleBinding** - Links the role to the service account within the namespace
+- **ClusterRole** - Cluster-wide permissions for storage and certificates
+- **ClusterRoleBinding** - Links cluster role to service account across the cluster
+
+### 🛠️ **Developer-Friendly**
+- Detailed documentation with examples
+- Troubleshooting guides and verification steps
+- Flexible variable system for customization
+
+## Use Cases
+
+- **CI/CD Pipeline Setup** - Enable Jenkins to deploy applications automatically
+- **Multi-Environment Deployments** - Secure access patterns for different environments
+- **DevOps Automation** - Streamline Kubernetes resource management
+- **Security Compliance** - Meet organizational security requirements with proper RBAC
+
+## Technical Highlights
+
+- **Terraform-Managed** - Infrastructure as Code approach for consistency and version control
+- **Kubernetes-Native** - Uses standard Kubernetes RBAC resources
+- **Namespace Isolation** - Restricts most permissions to specific namespaces
+- **Extensible Design** - Easy to add custom permissions and rules
+
+## Target Audience
+
+- **DevOps Engineers** setting up CI/CD pipelines
+- **Platform Engineers** managing Kubernetes infrastructure
+- **Security Teams** implementing proper access controls
+- **Development Teams** needing automated deployment capabilities
+
+This project eliminates the complexity of manually configuring Kubernetes RBAC while ensuring security best practices are followed from day one.
